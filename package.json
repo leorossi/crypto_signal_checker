@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "awilix": "^3.0.1",
+    "dotenv": "^4.0.0",
     "moment": "^2.20.1",
+    "node-bittrex-api": "^0.8.1",
     "optimist": "^0.6.1",
     "request": "^2.83.0"
   }

@@ -10,7 +10,7 @@
 const argv = require('optimist').argv;
 const moment = require('moment');
 
-const container = require('./lib/container');
+const container = require('../lib/container');
 
 
 const dataRetriever = container.resolve('BittrexDataRetriever');
