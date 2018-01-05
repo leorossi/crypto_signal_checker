@@ -29,9 +29,8 @@ node cli/signal_tester.js --coin COIN_NAME --buy BUY_PRICE --targets=TARGET1,TAR
 * `COIN_NAME` is the ticker name 
 * `BUY_PRICE` and `TARGET1` etc.. are in Satoshis (1/100.000.000 of BTC)
 
-### Bittrex Total Deposits
+### Bittrex Tools 
 
-Whill show you how much money you have deposited on Bittrex so far. It will take all your deposits and convert to USD (at the date's rate).
 #### Configure
 
 Proivde a `.env` files in the project root directory with your keys in this format
@@ -40,7 +39,18 @@ Proivde a `.env` files in the project root directory with your keys in this form
 BITTREX_API_KEY=xxxxxxxxx
 BITTREX_API_SECRET=xxxxxxxxx
 ```
-#### Run
+
+#### Get total deposits
+Whill show you how much money you have deposited on Bittrex so far. It will take all your deposits and convert to USD (at the date's rate).
+
 ```
 node cli/bittrex_total_deposits.js
+```
+
+#### Open Orders Status
+
+Prints a table with info on your open orders. It shows also the price delta between your target price and current market price.
+
+```
+node cli/bittrex_open_order_status.js
 ```
