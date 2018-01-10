@@ -11,6 +11,8 @@ const Utils = container.resolve('Utils');
 
 BittrexManager.getOrderHistory()
   .then((orders) => {
+    let totalPerformance = 0;
+    let profitOrders = 0;
     let totalGain = 0;
     const data = findBuyAndSell(orders);
     const mainTable = new Table();
@@ -37,6 +39,10 @@ BittrexManager.getOrderHistory()
             qtyLeft -= order.qty;
           } else {
             targetTable = otherTable;
+          }
+          if (performance > 0) {
+            totalPerformance += performance;
+            profitOrders++;
           }
           targetTable.cell('Date', Utils.readableDate(order.date, true)),
           targetTable.cell('Market', market);
@@ -65,12 +71,8 @@ BittrexManager.getOrderHistory()
     // Avg Gain
     mainTable.total('Performance', {
       printer: (val, width) => {
-        return `Avg: ${val.toFixed(2)} %`
+        return `Average Profit: ${Utils.getColoredPercentageText(totalPerformance / profitOrders)}`
       },
-      reduce: function (acc, val, idx, len) {
-        acc = acc + parseFloat(val);
-        return idx + 1 == len ? acc / len : acc
-      }
     })
     mainTable.sort('Date');
     console.log('========== Buy/Sell trades =============')
