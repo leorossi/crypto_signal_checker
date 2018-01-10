@@ -54,3 +54,11 @@ Prints a table with info on your open orders. It shows also the price delta betw
 ```
 node cli/bittrex_open_order_status.js
 ```
+
+#### Closed position report
+
+Prints a report of your closed positions, with your gain in value, percent, totals etc...
+
+```
+node cli/bittrex_closed_positions.js
+```

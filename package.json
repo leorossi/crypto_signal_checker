@@ -11,11 +11,13 @@
   "dependencies": {
     "async": "^2.6.0",
     "awilix": "^3.0.1",
+    "colors": "^1.1.2",
     "dotenv": "^4.0.0",
     "easy-table": "^1.1.0",
     "moment": "^2.20.1",
     "node-bittrex-api": "^0.8.1",
     "optimist": "^0.6.1",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "telegram-mtproto": "^1.0.5"
   }
 }
