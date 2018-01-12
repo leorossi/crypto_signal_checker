@@ -34,7 +34,7 @@ BittrexManager.getOrderHistory()
           let gain = 0
           if (undefined !== averageBuyPrice) {
             performance = profitLossForTrade([averageBuyPrice], [order.unitPrice]);  
-            gain = (order.unitPrice * order.qty) - (averageBuyPrice * order.qty)
+            gain = (order.unitPrice * order.qty) - (averageBuyPrice * order.qty);
             totalGain += gain;
             qtyLeft -= order.qty;
           } else {
@@ -49,12 +49,15 @@ BittrexManager.getOrderHistory()
           targetTable.cell('Quantity', order.qty);
           targetTable.cell('Bought at', averageBuyPrice);
           targetTable.cell('Sold at', order.unitPrice);
-          targetTable.cell('Gain', ((order.unitPrice * order.qty) - (averageBuyPrice * order.qty)).toFixed(8));
+          targetTable.cell('Gain', gain.toFixed(8));
           targetTable.cell('Performance', Utils.getColoredPercentageText(performance));
-          targetTable.newRow(); 
+          targetTable.newRow();
 
-          averageBuyPrice = null;
-          buyPrices = [];
+          if (qtyLeft === 0) {
+            averageBuyPrice = null;
+            buyPrices = [];
+          }
+
         }
       }
     }
