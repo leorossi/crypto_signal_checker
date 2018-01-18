@@ -84,7 +84,7 @@ BittrexManager.getOrderHistory()
     console.log(otherTable.toString());
   })
   .catch((err) => {
-    console.log(err);
+    console.log(err.error.stack);
   })
 
 
